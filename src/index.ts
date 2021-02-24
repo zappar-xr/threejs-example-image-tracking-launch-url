@@ -9,7 +9,7 @@
 import * as THREE from 'three';
 import * as ZapparThree from '@zappar/zappar-threejs';
 import targetImage from '../assets/example-tracking-image.zpt';
-
+import './index.sass'
 interface ObjectCallbackPair {
     object: THREE.Object3D,
     callback: Function
@@ -157,9 +157,7 @@ contentGroup.add(plane);
 
 // Since we're using webpack, we can use the 'file-loader' to make sure these assets are
 // automatically included in our output folder
-// eslint-disable-next-line import/no-webpack-loader-syntax
-const fontUrl = require('../assets/fonts/Passion.js').default;
-
+const fontUrl = require('file-loader!../assets/fonts/Passion.js').default
 // load the font and size it appropriately.
 fontLoader.load(fontUrl, (font: THREE.Font) => {
   const text = new THREE.Mesh(
