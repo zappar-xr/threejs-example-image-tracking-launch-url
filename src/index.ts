@@ -161,7 +161,7 @@ contentGroup.add(plane);
 // import font from '';
 // const fontUrl = require('');
 // load the font and size it appropriately.
-fontLoader.load('./assets/fonts/Passion.js', (font: THREE.Font) => {
+fontLoader.load('./assets/fonts/Passion.json', (font: THREE.Font) => {
   const text = new THREE.Mesh(
     new THREE.TextGeometry(
       'Visit Website', { font, size: 0.1, height: 0.01 },
