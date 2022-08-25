@@ -10,7 +10,7 @@ import * as THREE from 'three';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 import * as ZapparThree from '@zappar/zappar-threejs';
-import './index.sass'
+import './index.css'
 
 const targetImage = new URL('../assets/example-tracking-image.zpt', import.meta.url).href;
 
