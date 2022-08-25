@@ -7,10 +7,13 @@
 // we'll launch a website in a new tab.
 
 import * as THREE from 'three';
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 import * as ZapparThree from '@zappar/zappar-threejs';
-import targetImage from '../assets/example-tracking-image.zpt';
-
 import './index.sass'
+
+const targetImage = new URL('../assets/example-tracking-image.zpt', import.meta.url).href;
+
 interface ObjectCallbackPair {
     object: THREE.Object3D,
     callback: Function
@@ -140,7 +143,7 @@ buttonBackgroundPlane.position.z = 0.001;
 
 // Loaders are used to load external files
 // Pass our loading manager in to ensure the progress bar works correctly
-const fontLoader = new THREE.FontLoader(manager);
+const fontLoader = new FontLoader(manager);
 
 // Create a plane geometry mesh for the background
 const plane = new THREE.Mesh(
@@ -156,14 +159,12 @@ const plane = new THREE.Mesh(
 // add our content to the tracking group.
 contentGroup.add(plane);
 
-// Since we're using webpack, we can use the 'file-loader' to make sure these assets are
-// automatically included in our output folder
-// import font from '';
-// const fontUrl = require('');
+
 // load the font and size it appropriately.
-fontLoader.load('./assets/fonts/Passion.json', (font: THREE.Font) => {
+const fontUrl = new URL('./assets/fonts/Passion.json', import.meta.url).href;
+fontLoader.load(fontUrl, (font) => {
   const text = new THREE.Mesh(
-    new THREE.TextGeometry(
+    new TextGeometry(
       'Visit Website', { font, size: 0.1, height: 0.01 },
     ).center(),
     new THREE.MeshBasicMaterial({
