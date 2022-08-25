@@ -12,7 +12,7 @@ import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 import * as ZapparThree from '@zappar/zappar-threejs';
 import './index.css'
 
-const targetImage = new URL('../assets/example-tracking-image.zpt', import.meta.url).href;
+const targetImage = new URL('./assets/example-tracking-image.zpt', import.meta.url).href;
 
 interface ObjectCallbackPair {
     object: THREE.Object3D,
